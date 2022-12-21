@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kmj.springtest.ShoesMapper">
+	<select id="getAllShoes" resultType="com.kmj.springtest.ShoesDTO">
+		select * from shoes_test
+	</select>
+	<insert id="regProduct" parameterType="com.kmj.springtest.ShoesDTO">
+		insert into shoes_test values(shoes_test_seq.nextval,#{s_file},#{s_name},#{s_size},#{s_price},#{s_brand},#{s_description})
+	</insert>
+	<select id="getShoes" parameterType="com.kmj.springtest.ShoesDTO" resultType="com.kmj.springtest.ShoesDTO">
+		select * from shoes_test where s_no = #{s_no}
+	</select>
+	<update id="updateShoes" parameterType="com.kmj.springtest.ShoesDTO2">
+		update shoes_test
+		set
+		s_name = #{s_name2},
+		s_price = #{s_price2},
+		s_brand = #{s_brand2},
+		s_size = #{s_size2},
+		s_description = #{s_description2},
+		s_file = #{s_file2}
+		where s_no = #{s_no2}
+	</update>
+	<delete id="deleteShoes" parameterType="com.kmj.springtest.ShoesDTO">
+		delete from shoes_test where s_no = #{s_no}
+	</delete>
+	
+</mapper>
